@@ -9,7 +9,7 @@
 #include<stdio.h>
 int swapbits(int n, int a, int b) //number a, bit 1 and bit 2 to be swapped.
 {
-
+//INCOMPLETE
 return n;	
 		
 }
