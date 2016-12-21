@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
   int x[10] = {1, 9, 20, 3, -1, 8, 0, 11, 2, 6}; // an array of integers
-  string y[3] = {"chakresh", "amit", "zafar"};   // an array of strings
+  string y[3] = {"Chakresh", "Amit", "Zafar"};   // an array of strings
 
   int sizeofarray = sizeof(x) / sizeof(*x);
   vector<int> v; // a sequence containers
@@ -19,8 +19,6 @@ int main() {
   }
   // Printing the vector...
   cout << "\nPrinting the vector... " << endl;
-  // for (auto i = v.begin(); i != v.end(); ++i)
-  //	cout << *i << ' ';
   for (size_t i = 0; i < v.size(); i++)
     cout << v[i] << " ";
   cout << endl;
