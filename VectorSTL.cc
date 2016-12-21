@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[]) {
+int main() {
   int x[10] = {1, 9, 20, 3, -1, 8, 0, 11, 2, 6}; // an array of integers
   string y[3] = {"chakresh", "amit", "zafar"};   // an array of strings
 
