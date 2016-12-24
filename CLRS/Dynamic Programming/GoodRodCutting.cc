@@ -2,22 +2,23 @@
 // Dynamic programming approach
 // Author: Chakresh Singh
 // Date: 12-21-2016
-
 #include <iostream>
 
 using namespace std;
+int count = 0;
+
 int r[10];
 int max(int a, int b) {
   // a util function..
   return (a > b ? a : b);
 }
-int count = 0;
 
 int memoized_cut_rod_aux(int p[], int n) {
 
   if (r[n - 1] >= 0)
     return r[n - 1];
-  int q = -1; // set revenue to minus infinity
+  // Set revenue to minus infinity
+  int q = -1;
   if (n == 0)
     q = 0;
   else
