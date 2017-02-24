@@ -3,7 +3,7 @@ RSA Cryptosystem.
 @Version: 1.0.0.1
 @Due Date: 01/Feb/2017
 @Group Number: 7
-@Authors: Chakresh Singh, Dilip Sharma,Jose Joseph, Ripunjaya Reddy.
+@Authors: Chakresh Singh
 */
 #include <algorithm>
 #include <cmath>

@@ -1,3 +1,15 @@
 // Place your settings in this file to overwrite default and user settings.
 {
+    "files.associations": {
+        "string": "cpp",
+        "*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*tcc*h*h*h*h*h*h*h*h*h*h*h*hunordered_map": "cpp",
+        "unordered_map": "cpp",
+        "*clist": "cpp",
+        "list": "cpp",
+        "vector": "cpp",
+        "deque": "cpp",
+        "*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hunordered_map": "cpp",
+        "*tcc*h*h*h*h*h*h*tcc*tcc*tcc*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*tcc*tcc*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hunordered_map": "cpp",
+        "ostream": "cpp"
+    }
 }
