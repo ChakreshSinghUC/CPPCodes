@@ -24,7 +24,8 @@
             "name": "Linux",
             "includePath": [
                 "/usr/include",
-                "${workspaceRoot}"
+                "${workspaceRoot}",
+                "/usr/include/c++/5"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
