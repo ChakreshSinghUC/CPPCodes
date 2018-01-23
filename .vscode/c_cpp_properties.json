@@ -25,15 +25,24 @@
             "includePath": [
                 "/usr/include",
                 "${workspaceRoot}",
-                "/usr/include/c++/5"
+                "/usr/include/c++/5",
+                "/usr/include/x86_64-linux-gnu/c++/5",
+                "/usr/include/c++/5.4.0",
+                "/usr/include/x86_64-linux-gnu",
+                "/usr/lib/gcc/x86_64-linux-gnu/5/include/"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "",
                 "path": [
                     "/usr/include",
-                    "${workspaceRoot}"
-                ]
+                    "${workspaceRoot}",
+                    "/usr/include/c++/5",
+                    "/usr/include/x86_64-linux-gnu/c++/5",
+                    "/usr/include/c++/5.4.0",
+                    "/usr/include/x86_64-linux-gnu",
+                    "/usr/lib/gcc/x86_64-linux-gnu/5/include/"
+                 ]
             },
             "intelliSenseMode": "clang-x64"
         },
