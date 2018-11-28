@@ -2,187 +2,54 @@
 // Each row must contain the digits 1-9 without repetition.
 // Each column must contain the digits 1-9 without repetition.
 // Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+
 class Solution
 {
   public:
-    int chartonum(char ch)
-    {
-        switch (ch)
+  vector<vector<char>> b;
+    bool isValidSudoku(const vector<vector<char>> &board)
+    {b= board;
+        for (int i = 0; i < board.size(); ++i)
         {
-        case '0':
-            return 0;
-        case '1':
-            return 1;
-        case '2':
-            return 2;
-        case '3':
-            return 3;
-        case '4':
-            return 4;
-        case '5':
-            return 5;
-        case '6':
-            return 6;
-        case '7':
-            return 7;
-        case '8':
-            return 8;
-        case '9':
-            return 9;
+            if (HasDuplicate( i, i + 1, 0, board.size()))
+            {
+                return false;
+            }
+        }
+
+        for (int j = 0; j < board.size(); ++j)
+        {
+            if (HasDuplicate( 0, board.size(), j, j + 1))
+                return false;
+        }
+        int region_size = sqrt(board.size());
+        for (int i = 0; i < region_size; ++i)
+        {
+            for (int j = 0; j < region_size; ++j)
+            {
+                if (HasDuplicate( region_size * i, region_size * (i + 1), region_size * j, region_size * (j + 1)))
+                    return false;
+            }
         }
     }
-    bool isValidSudoku(vector<vector<char>> &board)
+    bool HasDuplicate( int start_row, int end_row, int start_col, int end_col)
     {
-
-        int A[9];
-        // Each row must contain the digits 1-9 without repetition.
-        for (int i = 0; i < 9; i++)
+        deque<bool> is_present(b.size() + 1, false);
+        for (int i = start_row; i < end_row; ++i)
         {
-            for (int j = 0; j < 9; j++)
+            for (int j = start_col; j < end_col; ++j)
             {
-
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
+                if (b[i][j] != 0 &&
+                    is_present[b[i][j]])
+                {
+                    return true;
+                }
+                is_present[b[i][j]] = true;
             }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
         }
-
-        // Each column must contain the digits 1-9 without repetition
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        // Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
-
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 3; i < 6; i++)
-        {
-            for (int j = 0; j < 3; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 6; i < 9; i++)
-        {
-            for (int j = 0; j < 3; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 3; j < 6; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 3; i < 6; i++)
-        {
-            for (int j = 3; j < 6; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 6; i < 9; i++)
-        {
-            for (int j = 3; j < 6; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 6; j < 9; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 3; i < 6; i++)
-        {
-            for (int j = 6; j < 9; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
-
-        for (int i = 6; i < 9; i++)
-        {
-            for (int j = 6; j < 9; j++)
-
-            {
-                A[chartonum(board[i][j]) - 1]++;
-                if (A[chartonum(board[i][j]) - 1] > 1)
-                    return false;
-            }
-            for (int i = 0; i < 9; i++)
-                A[i] = 0;
-        }
+        return false;
     }
 };
 int main()
