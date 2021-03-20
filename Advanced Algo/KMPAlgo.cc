@@ -1,6 +1,7 @@
 // Patter P to be searched in Text string T.
 
 #include <iostream>
+
 int count = 0;
 int lastIndex(int P[], int T[], int sizeP, int sizeT, int index) {
 
