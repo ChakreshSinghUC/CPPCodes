@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -19,16 +20,16 @@ void print(struct Node *r)
     // Prints the Linked List
 
     struct Node *temp;
-    cout << "\nPrinting all the nodes in the Linked List: \n";
+    cout << "\nPrinting all the nodes in the Linked List: \nroot\n|\n";
     temp = r;
     while (temp != NULL)
     {
-        cout << temp->val << "->";
+        cout << temp->val << " -> ";
         temp = temp->next;
     }
     cout << "NULL\n";
 }
-void insert(struct Node *r, int a)
+void insertEnd(struct Node *r, int a)
 {
     // Inserts a new node at the end of the Linked List
 
@@ -44,6 +45,13 @@ void insert(struct Node *r, int a)
     cout << "... inserted " << a << " at the end. Sucsess!!!\n";
 }
 
+void insertStart(struct Node *&r, int a)
+{
+    cout << "\nInserting at root, value: " << a;
+    struct Node *temp = new Node(a);
+    temp->next = r;
+    r = temp;
+}
 bool find(struct Node *r, int a)
 {
     // Searches for a given value in the linked list
@@ -64,6 +72,25 @@ bool find(struct Node *r, int a)
 
     return 0;
 }
+
+void print_reverse(struct Node *r)
+{
+    if (!r)
+        return;
+
+    stack<int> s; 
+    while (r)
+    { 
+        s.push(r->val);
+        r = r->next;
+    }
+    cout << "\nThe Linked List in reverse order: \n";
+    while (!s.empty())
+    {
+        cout << s.top() << " => ";
+        s.pop();
+    }
+}
 int main()
 {
     // driver code
@@ -71,12 +98,16 @@ int main()
     root->next = new Node(2);
     root->next->next = new Node(3);
     root->next->next->next = new Node(4);
-    insert(root, 5);
-    print(root);
-
+    insertEnd(root, 5);
     int a = 4;
     if (!find(root, a))
-        insert(root, a);
+        insertEnd(root, a);
 
+    insertStart(root, 0);
+    insertStart(root, -1);
+    insertStart(root, -2);
+    insertStart(root, -3);
+    print(root);
+    print_reverse(root);
     print(root);
 }
