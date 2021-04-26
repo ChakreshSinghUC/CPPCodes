@@ -1,3 +1,6 @@
+
+// Implements the basic operations on a linked list data structure
+
 #include <iostream>
 #include <stack>
 
@@ -20,7 +23,7 @@ void print(struct Node *r)
     // Prints the Linked List
 
     struct Node *temp;
-    cout << "\nPrinting all the nodes in the Linked List: \nroot\n|\n";
+    cout << "\nPrinting all the nodes in the Linked List: \n";
     temp = r;
     while (temp != NULL)
     {
@@ -29,7 +32,7 @@ void print(struct Node *r)
     }
     cout << "NULL\n";
 }
-void insertEnd(struct Node *r, int a)
+void insert_end(struct Node *r, int a)
 {
     // Inserts a new node at the end of the Linked List
 
@@ -45,7 +48,7 @@ void insertEnd(struct Node *r, int a)
     cout << "... inserted " << a << " at the end. Sucsess!!!\n";
 }
 
-void insertStart(struct Node *&r, int a)
+void insert_start(struct Node *&r, int a)
 {
     cout << "\nInserting at root, value: " << a;
     struct Node *temp = new Node(a);
@@ -78,9 +81,9 @@ void print_reverse(struct Node *r)
     if (!r)
         return;
 
-    stack<int> s; 
+    stack<int> s;
     while (r)
-    { 
+    {
         s.push(r->val);
         r = r->next;
     }
@@ -98,15 +101,15 @@ int main()
     root->next = new Node(2);
     root->next->next = new Node(3);
     root->next->next->next = new Node(4);
-    insertEnd(root, 5);
+    insert_end(root, 5);
     int a = 4;
     if (!find(root, a))
-        insertEnd(root, a);
+        insert_end(root, a);
 
-    insertStart(root, 0);
-    insertStart(root, -1);
-    insertStart(root, -2);
-    insertStart(root, -3);
+    insert_start(root, 0);
+    insert_start(root, -1);
+    insert_start(root, -2);
+    insert_start(root, -3);
     print(root);
     print_reverse(root);
     print(root);
