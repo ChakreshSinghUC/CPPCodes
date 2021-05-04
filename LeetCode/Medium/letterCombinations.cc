@@ -1,14 +1,15 @@
 //https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 #include <iostream>
-#include <vector>
-
+#include <vector> 
 using namespace std;
 
 class Solution
 {
-  public:
+
+public:
     string digitToString(char ch)
     {
+
         string a;
         switch (ch)
         {
@@ -86,5 +87,5 @@ int main()
 {
     Solution obj;
     string d = "2312";
-    vector<string> v = obj.letterCombinations(d);
+    vector<string> v = obj.letterCombinations(d); 
 }
