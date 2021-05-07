@@ -1,5 +1,4 @@
 // https://leetcode.com/problems/find-all-the-lonely-nodes/
-
 //   Definition for a binary tree node.
 
 #include <iostream>
