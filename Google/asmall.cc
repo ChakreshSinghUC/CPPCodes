@@ -13,6 +13,7 @@ int main()
         float A[N];
         int m;
         for (int i = 0; i < N; i++)
+        
         {
             cin>>A[i];
         }
