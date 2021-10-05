@@ -1,4 +1,8 @@
 //Finding the Maximum and Minimum element in an array
+<<<<<<< HEAD
+=======
+//edited by chakresh 
+>>>>>>> 77ecdd742f4f0c2b0f347b22fa9c7fd98e3bbe7f
 #include <iostream>
 using namespace std;
 

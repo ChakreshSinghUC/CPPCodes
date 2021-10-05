@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
+<<<<<<< HEAD
+=======
+//edited by chakresh
+>>>>>>> 77ecdd742f4f0c2b0f347b22fa9c7fd98e3bbe7f
 class Solution
 {
   public:
