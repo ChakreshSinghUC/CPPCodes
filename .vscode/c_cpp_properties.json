@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${default}",
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/i386",
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include",
+                "/Library/Developer/CommandLineTools/usr/lib/llvm-gcc/4.2.1/include"
+            ],
+            "defines": [],
+            "macFrameworkPath": [],
+            "compilerPath": "/usr/bin/g++"
+        }
+    ],
+    "version": 4
+}

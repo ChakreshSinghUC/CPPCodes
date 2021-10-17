@@ -1,41 +1,9 @@
-<<<<<<< HEAD
 {
+    "python.linting.enabled": false,
     "files.associations": {
+        "__config": "cpp",
+        "__nullptr": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp",
-        "bitset": "cpp",
-        "chrono": "cpp"
-=======
-<<<<<<< HEAD
-{
-    "files.associations": {
-        "ostream": "cpp",
-        "array": "cpp",
-        "initializer_list": "cpp",
-        "iostream": "cpp"
-=======
-// Place your settings in this file to overwrite default and user settings.
-{
-    "files.associations": {
-        "string": "cpp",
-        "*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*tcc*h*h*h*h*h*h*h*h*h*h*h*hunordered_map": "cpp",
-        "unordered_map": "cpp",
-        "*clist": "cpp",
-        "list": "cpp",
-        "vector": "cpp",
-        "deque": "cpp",
-        "*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hunordered_map": "cpp",
-        "*tcc*h*h*h*h*h*h*tcc*tcc*tcc*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*tcc*tcc*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hunordered_map": "cpp",
-        "ostream": "cpp",
-        "sstream": "cpp",
-        "regex": "cpp",
-        "valarray": "cpp",
-        "iostream": "cpp",
-        "bitset": "cpp",
-        "*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hbitset": "cpp",
-        "*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*h*hbitset": "cpp",
-        "array": "cpp"
->>>>>>> bb18c946a7d1f300ae30a0e8056104586c7576e5
->>>>>>> b78521bbd596b9da673845d9556122668c6c1eb5
+        "random": "cpp"
     }
 }
