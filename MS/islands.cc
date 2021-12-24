@@ -16,7 +16,6 @@ public:
      
             auto inside = [&](int row, int col) {
                 return 0 <= row && row < H && 0 <= col && col < W;
-
                 };
 
             vector<pair<int, int>> directions{ {1,0}, {0,1},{-1,0},{0,-1} };

@@ -10,7 +10,7 @@
             ],
             "defines": [],
             "macFrameworkPath": [],
-            "compilerPath": "/usr/bin/g++"
+            "compilerPath": "/usr/bin/clang++"
         }
     ],
     "version": 4

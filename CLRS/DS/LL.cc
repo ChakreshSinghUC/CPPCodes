@@ -1,4 +1,6 @@
-#include <iostream>
+// Linked List basics
+#include <forward_list>
+#include<iostream>
 
 using namespace std;
 
@@ -51,6 +53,11 @@ public:
     }
     return false;
   }
+  void push_front_ll(Node* &root, int a){
+    Node *ptr = new Node(a);
+    ptr->next = root;
+    root = ptr;
+  }
 };
 int main() {
 
@@ -59,14 +66,17 @@ int main() {
   for (int i = 1; i < 10; i++) {
     obj.add_node(root, i);
   }
+
+  obj.push_front_ll(root, 10);
   obj.display_ll(root);
   obj.reverse_ll(root);
   obj.display_ll(root);
 
-  cout << "\nFound 5? ";
+  cout << endl;
 
-  if (obj.find(root, 5))
-    cout << "Yes!";
-  else
-    cout << "Sorry";
-}
+  std::forward_list<int> l;
+  l.push_front(6);
+  l.push_front(5);
+  for(auto i: l)
+      cout << i << "->";
+ }
